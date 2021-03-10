@@ -46,14 +46,13 @@ endif()
 
 
 # glm
-if(PKGCONFIG_FOUND)
-  pkg_search_module(glm QUIET)
-else(PKGCONFIG_FOUND)
-  find_package(glm QUIET)
-endif()
-if(NOT glm_FOUND)
+# if(PKGCONFIG_FOUND)
+#   pkg_search_module(glm QUIET)
+# else(PKGCONFIG_FOUND)
+#   find_package(glm REQUIRED)
+# endif()
+# if(NOT glm_FOUND)
 	application_download_glm()
 	add_subdirectory(${APPLICATION_EXTERNAL}/glm)
-endif()
-
-
+	include_directories(${APPLICATION_EXTERNAL}/glm)
+# endif()
